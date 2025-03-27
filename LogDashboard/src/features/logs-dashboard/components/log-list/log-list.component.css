@@ -1,0 +1,20 @@
+nz-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+}
+
+.inner-layout {
+  padding: 0 24px 24px;
+}
+
+cdk-virtual-scroll-viewport {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  align-items: flex-start;
+}
+
+.force-update {
+  /* Пустой класс, нужен только для триггера */
+}

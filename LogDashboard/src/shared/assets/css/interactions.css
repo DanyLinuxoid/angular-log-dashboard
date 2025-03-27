@@ -1,0 +1,14 @@
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.no-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,11 @@
+.spinner {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  align-content: center;
+  padding-left: 50%;
+  z-index: 9999;
+  pointer-events: all;
+  background: rgba(0, 0, 0, 0.25);
+}

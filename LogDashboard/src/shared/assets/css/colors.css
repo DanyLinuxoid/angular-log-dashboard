@@ -1,0 +1,23 @@
+.full-red {
+  background: red;
+  border-color: red;
+  opacity: 1;
+}
+.full-red:focus,
+.full-red:hover {
+  background: red;
+  border-color: red;
+  opacity: 0.5;
+}
+
+.full-green {
+  background: green;
+  border-color: green;
+  opacity: 1;
+}
+.full-green:focus,
+.full-green:hover {
+  background: green;
+  border-color: green;
+  opacity: 0.5;
+}

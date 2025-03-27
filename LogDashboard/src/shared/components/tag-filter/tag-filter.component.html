@@ -1,0 +1,8 @@
+<div style="display: flex;">
+  <nz-select nzSize="large" nzMode="tags" [nzPlaceHolder]="placeholderText" [(ngModel)]="chosenTagOptions" (ngModelChange)="onSelectionChange($event)">
+    <nz-option *ngFor="let option of listOfTagOptions" [nzLabel]="option" [nzValue]="option"></nz-option>
+  </nz-select>
+  <simple-tooltip [tooltipText]="'Reset tags'">
+    <button nzSize="large" class="full-red pointer" (click)="resetTags()" nz-button nzType="primary"><nz-icon nzType="close" /></button>
+  </simple-tooltip>
+</div>

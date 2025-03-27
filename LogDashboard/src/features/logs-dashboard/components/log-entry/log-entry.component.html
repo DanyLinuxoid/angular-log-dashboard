@@ -1,0 +1,22 @@
+<div class="log-entry"
+     (mousemove)="onMouseMove($event)"
+     (mouseleave)="onContentHide()"
+     (click)="onContentPin()"
+     [style.backgroundColor]="log.isContentPinned ? 'lightskyblue' : 'white'"
+     [class.pinned]="log.isContentPinned">
+
+  <div class="log-header">
+    <simple-tooltip class="ignore-hover log-date"
+                    [tooltipText]="(datepipe.transform(log.date, 'dd/MM/yyyy') || '') + ' (' + log.logName + ')' ">
+      <div class="log-time">{{ datepipe.transform(log.date, 'HH:mm:ss') || "" }}</div>
+    </simple-tooltip>
+    <div style="width: auto;" class="no-overflow log-preview">{{ log.contentPreview }}</div>
+  </div>
+
+  <div *ngIf="log.isContentShown || log.isContentPinned" @fadeInOut>
+    <nz-content>
+      <p style="margin-bottom: 0;" class="log-content inner-content" [innerHTML]="log.content"></p>
+    </nz-content>
+  </div>
+
+</div>

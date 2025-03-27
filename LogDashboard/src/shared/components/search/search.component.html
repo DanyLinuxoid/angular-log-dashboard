@@ -1,0 +1,12 @@
+<div>
+  <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton" nzSize="large">
+    <input type="text" (keydown.enter)="onSearch(searchInput.value)" nz-input [placeholder]="placeholder" #searchInput nzSize="large" />
+  </nz-input-group>
+  <ng-template #suffixIconButton>
+    <simple-tooltip [tooltipText]="'Click to search'">
+      <button nz-button nzType="primary" nzTheme="outline" nzSearch nzSize="large" (click)="onSearch(searchInput.value)">
+        <nz-icon nzType="search" />
+      </button>
+    </simple-tooltip>
+  </ng-template>
+</div>

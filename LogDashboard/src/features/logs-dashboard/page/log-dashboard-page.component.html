@@ -1,0 +1,82 @@
+<nz-layout style="height: 100%;">
+  <div *ngIf="isLoading">
+    <loading-spinner [size]="'large'"></loading-spinner>
+  </div>
+
+  <nz-header style="background: white; height: unset; line-height: 10vh; padding: 0; overflow: hidden; overflow-x: scroll; scrollbar-width: thin;">
+    <nz-sider nzTheme="light">
+      <side-bar [menuItems]="logMenu" (chosenMenuItemEvent)=chooseLogMenuOption($event) [nzTitle]="'Log names'" />
+    </nz-sider>
+  </nz-header>
+  <nz-layout>
+    <nz-layout style="padding-bottom: 0; padding-top: 12px; padding-left: 6px; padding-right: 6px; display: flex; flex-direction: column; flex: 1;" class="inner-layout">
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <search class="pointer;" style="width: 50vh;" (searchChangeEvent)="searchLogs($event)" [placeholder]="'Search in logs'" [logs]="filteredLogs" />
+
+        <simple-tooltip style="padding: 0;" [tooltipText]="'Show only pinned'">
+          <button (click)="showPinned()"
+                  class="pointer"
+                  nz-button
+                  nzType="primary"
+                  nzSize="large">
+            <nz-icon nzType="pushpin" />
+          </button>
+        </simple-tooltip>
+
+        <simple-tooltip style="padding: 0;" [tooltipText]="'Unpin all'">
+          <button (click)="unpinAll()"
+                  class="full-red pointer"
+                  nz-button
+                  nzType="primary"
+                  nzSize="large">
+            <nz-icon nzType="pushpin" />
+          </button>
+        </simple-tooltip>
+
+        <simple-tooltip style="padding: 0;" [tooltipText]="'Pin all'">
+          <button (click)="pinAll()"
+                  class="full-green pointer"
+                  nz-button
+                  nzType="primary"
+                  nzSize="large">
+            <nz-icon nzType="pushpin" />
+          </button>
+        </simple-tooltip>
+
+        <simple-tooltip style="padding: 0;" [tooltipText]="'Change records per row count'">
+          <button (click)="updateRecordsPerRow()"
+                  class="pointer"
+                  nz-button
+                  nzType="primary"
+                  nzSize="large">
+            <nz-icon nzType="column-width" />
+          </button>
+        </simple-tooltip>
+
+        <tag-filter *ngIf="currentLogNameChosen === allLogsName"
+                    style="margin-left: 20px; width: 30%;"
+                    [placeholderText]="'Logs to look in'"
+                    [listOfTagOptions]="logNames"
+                    [(chosenTagOptions)]="selectedTags"></tag-filter>
+
+        <div style="display: inline-flex; margin-left: auto; margin-right: 5vh; gap: 5px; align-items: center;">
+          <span>Displaying</span>
+          <span style="font-weight: bold;">{{ logsToShow$.value.length }}</span>
+          <span>records</span>
+          <div *ngIf="filteredLogs.length != logsToShow$.value.length">
+            <span>out of </span>
+            <span style="font-weight: bold;">{{ filteredLogs.length }}</span>
+          </div>
+        </div>
+      </div>
+
+      <log-list
+                (uploadMoreData)="uploadMoreData($event)"
+                [recordsPerRow]="recordsPerRowCount"
+                [shouldDisplayLogNames]="currentLogNameChosen === allLogsName"
+                style="padding-bottom: 1%; height: 100%; margin-top: 12px;"
+                [logs]="logsToShow$" />
+    </nz-layout>
+  </nz-layout>
+</nz-layout>
+
