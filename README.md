@@ -1,5 +1,8 @@
 # Angular Log Dashboard 📊🔍
 
+![newezgif-4df8765e6092d8](https://github.com/user-attachments/assets/ec1f5fbd-ea64-4f19-a52f-8d07e35ba8f6)
+
+
 ## Overview
 
 Angular Log Dashboard is a lightweight, high-performance log visualization tool designed for efficient log filtering + log analysis. 
@@ -23,7 +26,7 @@ Built from real-world project requirement, this module offers a robust solution 
 - Minimal performance overhead
 - Smooth scrolling and rendering
 
-![image](https://github.com/user-attachments/assets/67370540-8ae7-45eb-a5b7-32b5b47a4b73)
+![cropezgif-43d68042340afd](https://github.com/user-attachments/assets/a34d06e4-a6fd-4939-b612-78d7f39a7eb7)
 
 
 ## 📦 How To Use
